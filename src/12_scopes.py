@@ -5,7 +5,9 @@
 x = 12
 
 def change_x():
+    global x  # Using global allows changing to "x" to be available to the variable in the global scope
     x = 99
+    print(x)
 
 change_x()
 
@@ -19,6 +21,7 @@ def outer():
     y = 120
 
     def inner():
+        nonlocal y  # We are telling Python that "y" is not local to the outer function scope, which allows us to modify it.
         y = 999
 
     inner()
